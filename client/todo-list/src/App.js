@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Register from './pages/Register';
-import Welcome from './pages/Welcome';
-import Login from './pages/Login';
+import Register from "./pages/Register";
+import Welcome from "./pages/Welcome";
+import Login from "./pages/Login";
 
 export const CredentialsContext = React.createContext();
 
 function App() {
-  const credentialsState = useState({
-    username: "will", //TODO : temp, remove this!
-    password: "1234"
-  });
+  const credentialsState = useState(null);
+
   return (
-    <div className ="App">
+    <div className="App">
       <CredentialsContext.Provider value={credentialsState}>
         <Router>
           <Switch>
@@ -29,7 +27,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-        </CredentialsContext.Provider>
+      </CredentialsContext.Provider>
     </div>
   );
 }
